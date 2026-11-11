@@ -1,0 +1,85 @@
+:root {
+  --bg: #f7f7f5;
+  --card: #ffffff;
+  --text: #1d1f23;
+  --muted: #5d636e;
+  --line: #dcdfe4;
+  --accent: #b3121f; /* Utah Tech red */
+  --good: #1a7f37;
+  --bad: #b3121f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15171a;
+    --card: #1e2125;
+    --text: #e8eaed;
+    --muted: #a0a6b0;
+    --line: #33373d;
+    --accent: #ff6b75;
+    --good: #4ac26b;
+    --bad: #ff6b75;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.45;
+}
+
+header, main, footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+header { padding-top: 20px; }
+h1 { margin: 0 0 4px; font-size: 1.6rem; color: var(--accent); }
+h2 { margin: 0 0 10px; font-size: 1.15rem; }
+.sub { margin: 0 0 16px; color: var(--muted); }
+
+section {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+}
+
+th:first-child, td:first-child { text-align: left; }
+th + th, td + td { padding-left: 10px; white-space: nowrap; }
+thead th { color: var(--muted); font-weight: 600; font-size: 0.85rem; }
+tr.total td { font-weight: 700; border-bottom: none; border-top: 2px solid var(--text); }
+
+.pos { color: var(--good); }
+.neg { color: var(--bad); }
+
+.note { margin: 10px 0 0; color: var(--muted); font-size: 0.85rem; }
+.status { color: var(--muted); }
+.status.error { color: var(--bad); font-weight: 600; }
+
+footer { color: var(--muted); font-size: 0.8rem; padding-bottom: 24px; }
+code { font-size: 0.9em; overflow-wrap: anywhere; }
+
+@media (max-width: 420px) {
+  table { font-size: 0.85rem; }
+  th, td { padding: 7px 2px; }
+}
