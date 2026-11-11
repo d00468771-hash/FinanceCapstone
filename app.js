@@ -192,6 +192,15 @@
     setAll(b);
   }
 
+  // Register the service worker so the app installs and works offline.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function (err) {
+        console.warn('Service worker not registered:', err);
+      });
+    });
+  }
+
   const status = $('status');
   Promise.all([loadText('data/electromart.csv'), loadText('data/assumptions.csv')])
     .then(function (texts) {
