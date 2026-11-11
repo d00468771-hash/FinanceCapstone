@@ -37,6 +37,58 @@
       </table>
       <p class="note">A drop in an asset frees cash. A rise in accounts payable frees cash. Each amount also equals days changed × annual COGS (or revenue) / <span id="diy">365</span>.</p>
     </section>
+
+    <section aria-labelledby="levers-h">
+      <h2 id="levers-h">Levers</h2>
+      <p class="note top">Move a slider or type a number of days. Revenue and COGS stay at their Before values.</p>
+
+      <div class="buttons">
+        <button type="button" id="set-before">Set to Before</button>
+        <button type="button" id="set-after">Set to After</button>
+      </div>
+
+      <div class="lever">
+        <label for="dio-num">DIO (inventory days)</label>
+        <input type="number" id="dio-num" step="any" min="0" inputmode="decimal">
+        <input type="range" id="dio-range" step="any" min="0" aria-label="DIO slider">
+      </div>
+      <div class="lever">
+        <label for="dso-num">DSO (collection days)</label>
+        <input type="number" id="dso-num" step="any" min="0" inputmode="decimal">
+        <input type="range" id="dso-range" step="any" min="0" aria-label="DSO slider">
+      </div>
+      <div class="lever">
+        <label for="dpo-num">DPO (payment days)</label>
+        <input type="number" id="dpo-num" step="any" min="0" inputmode="decimal">
+        <input type="range" id="dpo-range" step="any" min="0" aria-label="DPO slider">
+      </div>
+
+      <div class="big">
+        <span>Cash conversion cycle</span>
+        <strong id="lever-ccc">–</strong>
+        <small id="lever-ccc-change"></small>
+      </div>
+
+      <h3>Balances these days imply</h3>
+      <table id="lever-table">
+        <thead>
+          <tr><th scope="col">Item</th><th scope="col">Before</th><th scope="col">Levers</th><th scope="col">Cash freed</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <h3>Bank line and suppliers</h3>
+      <dl class="facts">
+        <dt id="interest-label">Interest saved each year</dt>
+        <dd id="lever-interest">–</dd>
+        <dt>Days paid past the net-<span id="net-days">30</span> due date</dt>
+        <dd id="lever-pastdue">–</dd>
+        <dt>Annual cost of skipping the <span id="disc-pct">2%</span> discount</dt>
+        <dd id="lever-disc">–</dd>
+      </dl>
+      <p class="note" id="interest-note"></p>
+      <p class="note" id="disc-note"></p>
+    </section>
   </main>
 
   <footer>

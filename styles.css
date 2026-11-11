@@ -49,6 +49,7 @@ section {
   border-radius: 10px;
   padding: 14px;
   margin-bottom: 16px;
+  overflow-x: auto; /* very small phones: a wide table scrolls inside its card, not the page */
 }
 
 table {
@@ -80,6 +81,77 @@ footer { color: var(--muted); font-size: 0.8rem; padding-bottom: 24px; }
 code { font-size: 0.9em; overflow-wrap: anywhere; }
 
 @media (max-width: 420px) {
-  table { font-size: 0.85rem; }
+  section { padding: 12px 10px; }
+  table { font-size: 0.8rem; }
   th, td { padding: 7px 2px; }
+  th + th, td + td { padding-left: 6px; }
 }
+
+/* ---- Levers ---- */
+h3 { margin: 18px 0 8px; font-size: 1rem; }
+.note.top { margin: 0 0 12px; }
+
+.buttons { display: flex; gap: 8px; margin-bottom: 14px; }
+button {
+  flex: 1;
+  padding: 10px 12px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+button:active { background: var(--line); }
+
+.lever {
+  display: grid;
+  grid-template-columns: 1fr 6.5em;
+  align-items: center;
+  gap: 4px 10px;
+  margin-bottom: 14px;
+}
+.lever label { font-weight: 600; font-size: 0.95rem; }
+.lever input[type="number"] {
+  width: 100%;
+  padding: 6px 8px;
+  font: inherit;
+  text-align: right;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.lever input[type="range"] {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin: 0;
+  accent-color: var(--accent);
+}
+
+.big {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  padding: 12px;
+  background: var(--bg);
+  border-radius: 8px;
+}
+.big span { flex-basis: 100%; color: var(--muted); font-size: 0.85rem; }
+.big strong { font-size: 1.8rem; font-variant-numeric: tabular-nums; }
+.big small { color: var(--muted); }
+
+.facts {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin: 0;
+}
+.facts dt, .facts dd {
+  margin: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.facts dd { text-align: right; font-weight: 700; font-variant-numeric: tabular-nums; padding-left: 10px; }
